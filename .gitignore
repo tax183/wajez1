@@ -4,3 +4,5 @@
 
 # تجاهل مجلدات النظام والـ Node.js
 node_modules/
+uploads/
+results/
