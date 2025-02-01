@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>واجز</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="img/Group 380.png" alt="الشعار" class="logo-image">
+    </div>
+
+    <button class="custom-button" onclick="window.location.href='index.html'">English</button>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>استخراج النصوص من الملفات وتلخيصها</h2>
+      <p>تكست سناب يوفر لك الوقت والجهد من خلال استخراج النصوص بسهولة من الملفات والصور، تلخيصها، وتنظيمها بجودة عالية.</p>
+    </section>
+
+    <div class="upload">
+      <h3>اختر الملف الذي تريد تلخيصه</h3>
+      <div class="deep-thinker">
+        <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
+        المفكر العميق
+      </div>
+      <div class="upload-box" id="uploadBox">
+        <p>حدد أو اسحب الملف</p>
+        <p class="file-types">نحن ندعم (pdf, png, jpeg, gif, webp)</p>
+        <input type="file" id="fileInput" class="file-input" />
+      </div>
+      <div class="file-info" id="fileInfo" style="display: none;">
+        <img src="img/bi_filetype-pdf.png" alt="أيقونة PDF" class="file-icon">
+        <span class="file-name" id="fileName">اسم الملف.pdf</span>
+        <button id="deleteFileBtn" class="delete-button">
+          <img src="img/delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.png" alt="أيقونة الحذف">
+        </button>
+      </div>
+      <button class="summarize-btn" id="summarizeBtn" disabled>تلخيص</button>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('fileInfo').style.display = 'flex';
+      }
+    });
+
+    document.getElementById('deleteFileBtn').addEventListener('click', function() {
+      document.getElementById('fileInput').value = "";
+      document.getElementById('fileInfo').style.display = 'none';
+    });
+  </script>
+
+  <section class="features">
+    <h2>لماذا تستخدم تكست سناب؟</h2>
+    <div class="feature-box">
+      <div class="feature-text">
+        <h3>توفير الوقت</h3>
+        <p>احصل على النقاط الأساسية بسرعة دون الحاجة إلى قراءة نصوص طويلة. الذكاء الاصطناعي يساعدك في استخراج المعلومات المهمة خلال ثوانٍ.</p>
+      </div>
+      <img src="img/Presentation.png" alt="توفير الوقت">
+    </div>
+    <div class="feature-box">
+      <img src="img/Working from Home.png" alt="زيادة الإنتاجية">
+      <div class="feature-text">
+        <h3>زيادة الإنتاجية</h3>
+        <p>ركز على ما هو مهم حقًا. التلخيص الذكي يساعدك على اتخاذ قرارات أسرع وأكثر دقة.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-for">
+    <h2>لمن تم تصميم تكست سناب؟</h2>
+    <p>تكست سناب يعزز الكفاءة ويدعم عدة أقسام في مؤسستك</p>
+    <div class="departments">
+      <div class="department">
+        <img src="img/Group 366.png" alt="الموارد البشرية">
+        <h3>الموارد البشرية</h3>
+        <p>تلخيص السير الذاتية والتقييمات يساعد قسم الموارد البشرية في اتخاذ قرارات أسرع وأفضل.</p>
+      </div>
+      <div class="department">
+        <img src="img/Group 367.png" alt="المبيعات">
+        <h3>المبيعات</h3>
+        <p>تلخيص تقارير العملاء والمحادثات يساعد فرق المبيعات على المتابعة والتفاعل بشكل أسرع.</p>
+      </div>
+      <div class="department">
+        <img src="img/Group 368.png" alt="خدمة العملاء">
+        <h3>خدمة العملاء</h3>
+        <p>تلخيص استفسارات العملاء يساعد فرق الدعم على الاستجابة بشكل أسرع وأكثر دقة.</p>
+      </div>
+      <div class="department">
+        <img src="img/Group 369.png" alt="الفرق التقنية">
+        <h3>الفرق التقنية</h3>
+        <p>تلخيص المستندات التقنية يساعد الفرق التقنية على البقاء على اطلاع بسرعة ودقة.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="focus-box">
+    <p>ركز على القيمة، وليس على الضوضاء</p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; واجز ، جميع الحقوق محفوظة</p>
+    </div>
+  </footer>
+
+  <script src="day.js" defer></script>
+</body>
+</html>

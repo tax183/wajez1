@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TextSnap - Results</title>
+  <link rel="stylesheet" href="styleguide.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-container">
+      <h1 class="logo">TextSnap</h1>
+    </div>
+    <button id="newFileBtn" class="new-file-btn">+ New</button>
+  </header>
+
+  <main class="content">
+    <div class="pdf-preview">
+      <iframe id="pdfViewer" src="" frameborder="0" width="100%" height="400px"></iframe>
+    </div>
+    
+    <div class="result-container">
+      <h2>Extracted Result</h2>
+      <div id="resultText">Loading...</div> <!-- مكان عرض البيانات النصية -->
+      <button id="downloadJsonBtn" style="display: none;">Download JSON</button>
+    </div>
+  </main>
+
+  <script>
+    const API_BASE_URL = "http://localhost:3000"; // رابط الباك-إند
+    const pdfViewer = document.getElementById('pdfViewer');
+    const resultContainer = document.getElementById('resultText'); 
+    const newFileBtn = document.getElementById('newFileBtn');
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'application/pdf';
+    
+    const uploadedFileName = sessionStorage.getItem('uploadedFileName');
+    
+    if (uploadedFileName) {
+      pdfViewer.src = `${API_BASE_URL}/uploads/${uploadedFileName}`;
+    
+      fetch(`${API_BASE_URL}/result/${uploadedFileName}`)
+        .then(response => response.text())
+        .then(data => {
+          resultContainer.innerHTML = data;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          resultContainer.innerHTML = "<h2>Result</h2><p>Error loading data.</p>";
+        });
+    }
+    
+    newFileBtn.addEventListener('click', () => {
+      fileInput.click();
+    });
+    
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const formData = new FormData();
+        formData.append('file', file);
+    
+        fetch(`${API_BASE_URL}/upload`, {
+          method: 'POST',
+          body: formData,
+        })
+          .then(response => response.json())
+          .then(data => {
+            sessionStorage.setItem('uploadedFileName', data.fileName);
+            location.reload();
+          })
+          .catch(error => console.error('Upload Error:', error));
+      }
+    });
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+openai
+boto3
+requests
+python-dotenv
+
+PyPDF2
+flask
+flask_cors
+
+werkzeug
+pillow
+pytesseract
+pymupdf
+
+

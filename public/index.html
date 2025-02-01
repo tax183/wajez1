@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>wajez</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="img/Group 380.png" alt="Logo" class="logo-image">
+      
+    </div>
+    <button class="custom-button" onclick="window.location.href='ar.html'">عربي</button>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <h2>Extract the texts from the files and summarize</h2>
+      <p>Textsnap saves you time and effort by easily extracting text from files and images, summarizing it, and organizing it with high quality.</p>
+    </section>
+
+  
+
+    <div class="upload">
+      <h3>Select the file you want to summarize</h3>
+      <div class="deep-thinker">
+        <div class="toggle-switch" onclick="toggleSwitch(this)"></div>
+        Deep Thinker
+      </div>
+      <div class="upload-box" id="uploadBox">
+        <p>Select or drop a file</p>
+        <p class="file-types">We support (pdf, png, jpeg, gif, webp)</p>
+        <input type="file" id="fileInput" class="file-input" />
+      </div>
+      <div class="file-info" id="fileInfo" style="display: none;">
+        <img src="img/bi_filetype-pdf.png" alt="PDF Icon" class="file-icon">
+        <span class="file-name" id="fileName">Name file.pdf</span>
+        <button id="deleteFileBtn" class="delete-button">
+          <img src="img/delete_24dp_5F6368_FILL0_wght400_GRAD0_opsz24 2.png" alt="Delete Icon">
+        </button>
+      </div>
+      <button class="summarize-btn" id="summarizeBtn" disabled>Summarize</button>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('fileInput').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        document.getElementById('fileName').textContent = file.name;
+        document.getElementById('fileInfo').style.display = 'flex';
+      }
+    });
+
+    document.getElementById('deleteFileBtn').addEventListener('click', function() {
+      document.getElementById('fileInput').value = "";
+      document.getElementById('fileInfo').style.display = 'none';
+    });
+  </script>
+
+    <!-- ✅ تم إضافة قسم معلومات الملف حتى لا يظهر خطأ null في day.js -->
+    <div id="fileInfo" class="hidden">
+      <span id="fileName"></span>
+      <button id="deleteFileBtn">❌</button>
+    </div>
+
+    <section class="features">
+      <h2>Why do you use TextSnap?</h2>
+      <div class="feature-box">
+        <div class="feature-text">
+          <h3>Save Time</h3>
+          <p>Get to the key points quickly without having to read lengthy texts. AI helps you extract important information in no time.</p>
+        </div>
+        <img src="img/Presentation.png" alt="Save Time">
+      </div>
+      <div class="feature-box">
+        <img src="img/Working from Home.png" alt="Boost Productivity">
+        <div class="feature-text">
+          <h3>Boost Productivity</h3>
+          <p>Focus on what matters most. Smart summarization helps you make faster, more accurate decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="who-for">
+      <h2>Who is the TextSnap for?</h2>
+      <p>TextSnap Boost Efficiency and Empower Multiple Departments Across Your Organization</p>
+      <div class="departments">
+        <div class="department">
+          <img src="img/Group 366.png" alt="HR">
+          <h3>Human Resources</h3>
+          <p>Summarizing resumes and evaluations helps HR make quicker, better decisions.</p>
+        </div>
+        <div class="department">
+          <img src="img/Group 367.png" alt="Sales">
+          <h3>Sales</h3>
+          <p>Summarizing customer reports and communications helps sales teams follow up and engage faster.</p>
+        </div>
+        <div class="department">
+          <img src="img/Group 368.png" alt="Customer Support">
+          <h3>Customer Support</h3>
+          <p>Summarizing customer inquiries helps support teams respond faster and more accurately.</p>
+        </div>
+        <div class="department">
+          <img src="img/Group 369.png" alt="Technical Teams">
+          <h3>Technical Teams</h3>
+          <p>Summarizing technical documents helps tech teams stay updated quickly and accurately.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="focus-box">
+      <p>Focus on the Value, Not the Noise</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 TextSnap, all rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- ✅ تم إضافة defer لضمان تحميل day.js بعد تحميل الصفحة -->
+  <script src="day.js" defer></script>
+</body>
+</html>
