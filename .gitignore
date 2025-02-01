@@ -1,2 +1,6 @@
+# تجاهل الملفات الحساسة
 .env
-.node_modules
+.DS_Store
+
+# تجاهل مجلدات النظام والـ Node.js
+node_modules/
