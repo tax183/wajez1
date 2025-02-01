@@ -40,8 +40,6 @@ Wajez is a web application that extracts text from documents and images using OC
 
 ## Installation
 
-### 1. Install Dependencies
-
-#### Flask (Python)
+### 1. Clone the Repository
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/YOUR_GITHUB_USERNAME/Wajez.git
