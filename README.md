@@ -11,7 +11,6 @@ Wajez is a web application that extracts text from documents and images using OC
 - Option to **download extracted text as a JSON file**
 - **Upload and analyze new files** easily
 
-## Technologies Used
 
 ## Technologies Used
 
